@@ -2,9 +2,9 @@
 
 Write anything on your iPad with an Apple Pencil, underline it three times, and the answer appears handwritten below.
 
-<img src="docs/screenshot.png" alt="A handwritten question, underlined three times, with a handwritten AI answer below it" width="420">
+https://github.com/user-attachments/assets/557c5f08-59ed-41bb-8fe6-ea68be49425b
 
-**[Watch the 1-minute demo](docs/demo.mp4)** · Website: [scrbbl.ai](https://scrbbl.ai)
+Website: [scrbbl.ai](https://scrbbl.ai) · [Download the demo video](docs/demo.mp4)
 
 ## How it works
 
