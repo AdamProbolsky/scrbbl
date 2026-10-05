@@ -2,9 +2,16 @@
 
 Write anything on your iPad with an Apple Pencil, underline it three times, and the answer appears handwritten below.
 
-https://github.com/user-attachments/assets/557c5f08-59ed-41bb-8fe6-ea68be49425b
+<img src="docs/demo.gif" alt="Writing a question with Apple Pencil, underlining it three times, and the answer appearing in handwriting" width="360">
 
 Website: [scrbbl.ai](https://scrbbl.ai)
+
+<details>
+<summary>Watch the full 1-minute demo (underline, then circle for a longer answer)</summary>
+
+https://github.com/user-attachments/assets/557c5f08-59ed-41bb-8fe6-ea68be49425b
+
+</details>
 
 ## How it works
 
@@ -48,12 +55,17 @@ Both can use web search for time-sensitive questions.
 | `Scrbbl/SettingsView.swift` | API key, answer speed, and gesture help |
 | `Scrbbl/Fonts` | Nothing You Could Do, the handwriting font used for answers (SIL Open Font License) |
 | `design/make_icon.py` | Generates the app icon |
+| `design/make_social_preview.py` | Generates the social preview card (`docs/social-preview.png`) |
 
 ## Privacy and security
 
 Your API key is stored in the iPad's Keychain and never leaves the device except to call OpenAI. Images of the handwriting you underline or circle are sent to OpenAI to produce answers.
 
 The app calls OpenAI directly from the iPad, which is fine for personal use. A public App Store release should route requests through a backend instead, because a key inside an app can be extracted.
+
+## Contributing
+
+Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), and look for issues labeled **good first issue** to get started.
 
 ## License
 
