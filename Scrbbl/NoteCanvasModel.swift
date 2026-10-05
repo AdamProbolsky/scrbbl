@@ -318,7 +318,7 @@ struct AIClient {
     /// Works on partial text while the answer is still streaming in.
     private static func split(_ text: String) -> Reply {
         guard text.lowercased().hasPrefix("question:") else {
-            return Reply(question: "", answer: text.trimmingCharacters(in: .whitespacesAndNewlines))
+            return Reply(question: "", answer: removingCitations(text))
         }
         guard let newline = text.firstIndex(of: "\n") else {
             // Still receiving the question line.
@@ -326,8 +326,23 @@ struct AIClient {
             return Reply(question: question, answer: "")
         }
         let question = text[..<newline].dropFirst("question:".count).trimmingCharacters(in: .whitespaces)
-        let answer = text[newline...].trimmingCharacters(in: .whitespacesAndNewlines)
-        return Reply(question: question, answer: answer)
+        return Reply(question: question, answer: removingCitations(String(text[newline...])))
+    }
+
+    /// Web search adds source links such as "([site.com](https://...))" to the
+    /// text even when asked not to. They don't belong in a handwritten answer.
+    static func removingCitations(_ text: String) -> String {
+        var result = text
+        let patterns: [(String, String)] = [
+            (#"\s*\(\[[^\]]*\]\([^)]*\)\)"#, ""),   // ([label](url))
+            (#"\[([^\]]*)\]\([^)]*\)"#, "$1"),        // [label](url) -> label
+            (#"\s*\(?https?://[^\s)]*\)?"#, ""),       // bare URLs
+            (#"\s*\(\[[^\]]*$"#, "")                  // a citation still streaming in
+        ]
+        for (pattern, template) in patterns {
+            result = result.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
+        }
+        return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     private struct StreamEvent: Decodable {
