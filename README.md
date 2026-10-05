@@ -4,7 +4,7 @@ Write a question on your iPad with an Apple Pencil, underline it three times, an
 
 <img src="docs/screenshot.png" alt="A handwritten question, underlined three times, with a handwritten AI answer below it" width="420">
 
-Website: [scrbbl.ai](https://scrbbl.ai)
+**[Watch the 80-second demo](docs/demo.mp4)** · Website: [scrbbl.ai](https://scrbbl.ai)
 
 ## How it works
 
