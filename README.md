@@ -4,6 +4,8 @@ Write anything on your iPad with an Apple Pencil, underline it three times, and 
 
 <img src="docs/demo.gif" alt="Writing a question with Apple Pencil, underlining it three times, and the answer appearing in handwriting" width="360">
 
+**Try the beta:** [Join on TestFlight](https://testflight.apple.com/join/WvMPFk74) (iPad, bring your own [OpenAI API key](https://platform.openai.com/api-keys))
+
 Website: [scrbbl.ai](https://scrbbl.ai)
 
 <details>
